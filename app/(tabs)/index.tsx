@@ -1,5 +1,6 @@
 import CartButton from "@/components/CartButton";
 import { images, offers } from "@/constant";
+import useAuthStore from "@/store/auth.store";
 import cn from "clsx";
 import {
   FlatList,
@@ -9,10 +10,13 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
+  const { user } = useAuthStore();
+  console.log("USER:", JSON.stringify(user, null, 2));
   return (
-    <>
+    <SafeAreaView className="flex-1 bg-white">
       {/* header */}
       <View className="flex-between flex-row w-full my-5 px-5">
         <View className="flex-start">
@@ -86,6 +90,6 @@ export default function Index() {
         contentContainerClassName="pb-28 px-5"
       />
       {/* ==offers== */}
-    </>
+    </SafeAreaView>
   );
 }
