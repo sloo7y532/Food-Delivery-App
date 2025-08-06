@@ -8,16 +8,21 @@ const Filter = ({ categories }: { categories: Category[] }) => {
   const searchParams = useLocalSearchParams();
   const [active, setActive] = useState(searchParams.category || "all");
 
+  // Handle Press
   const handlePress = (id: string) => {
     setActive(id);
 
+    // If the id is all, clear the category
     if (id === "all") {
+      // Clear the category
       router.setParams({ category: undefined });
     } else {
+      // Set the category
       router.setParams({ category: id });
     }
   };
 
+  // Filter Data to include all categories at the top
   const FilterData: (Category | { $id: string; name: string })[] = categories
     ? [{ $id: "all", name: "All" }, ...categories]
     : [{ $id: "all", name: "All" }];

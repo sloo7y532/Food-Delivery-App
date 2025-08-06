@@ -7,18 +7,22 @@ const Searchbar = () => {
   const params = useLocalSearchParams<{ query: string }>();
   const [query, setQuery] = useState(params.query);
 
+  // Handle Search
   const handleSearch = (text: string) => {
     setQuery(text);
 
+    // If no text, clear the query
     if (!text) router.setParams({ query: undefined });
   };
 
+  // Handle Submit
   const handleSubmit = () => {
+    // If there is text, set the query
     if (query.trim()) router.setParams({ query });
   };
 
   return (
-    <View className="searchbar">
+    <View className="searchbar elevation-5 shadow-lg ">
       <TextInput
         className="flex-1 p-5"
         placeholder="Search for pizzas, burgers..."

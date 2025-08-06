@@ -1,13 +1,14 @@
+import emptyState from "@/assets/images/empty-state.png";
 import CartButton from "@/components/CartButton";
 import Filter from "@/components/Filter";
-import MenuCard from "@/components/menuCard";
+import MenuCard from "@/components/MenuCard";
 import SearchBar from "@/components/SearchBar";
 import { getCategories, getMenu } from "@/lib/appwrite";
 import useAppwrite from "@/lib/useAppwrite";
 import { Category, MenuItem } from "@/type";
 import { useLocalSearchParams } from "expo-router";
 import React, { useEffect } from "react";
-import { FlatList, Text, View } from "react-native";
+import { FlatList, Image, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const Search = () => {
@@ -76,9 +77,11 @@ const Search = () => {
         ListEmptyComponent={() => {
           return (
             <View className="flex-1 flex-center">
-              <Text className="paragraph-semibold text-dark-100">
-                No results found
-              </Text>
+              <Image
+                source={emptyState}
+                resizeMode="contain"
+                className="size-56"
+              />
             </View>
           );
         }}

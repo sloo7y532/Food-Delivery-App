@@ -74,6 +74,7 @@ const SignUp = () => {
         title="Sign up"
         onPress={handleSubmit}
         isLoading={isSubmitting}
+        textStyle="text-white-100"
       />
 
       {/* if user already have an account, show Sign in link */}

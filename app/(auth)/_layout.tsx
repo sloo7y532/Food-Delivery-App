@@ -34,7 +34,7 @@ export default function AuthLayout() {
         >
           <ImageBackground
             source={images.loginGraphic}
-            className="size-full rounded-b-lg"
+            className="size-full rounded-b-3xl"
             resizeMode="stretch"
           />
           <Image

@@ -2,6 +2,7 @@ import CartButton from "@/components/CartButton";
 import { images, offers } from "@/constant";
 import useAuthStore from "@/store/auth.store";
 import cn from "clsx";
+import { router } from "expo-router";
 import {
   FlatList,
   Image,
@@ -40,6 +41,11 @@ export default function Index() {
           const isEven = index % 2 === 0;
           return (
             <Pressable
+              onPress={() => {
+                router.push({
+                  pathname: "/Search",
+                });
+              }}
               className={cn(
                 "offer-card",
                 isEven ? "flex-row-reverse" : "flex-row"
