@@ -1,3 +1,16 @@
+/**
+ * Root Layout Component
+ *
+ * This is the main entry point for the food delivery app. It handles:
+ * - Error monitoring with Sentry
+ * - Font loading and splash screen management
+ * - Authentication state initialization
+ * - Navigation stack configuration
+ *
+ * The layout uses Expo Router for navigation and wraps the entire app
+ * in necessary providers for safe areas and error tracking.
+ */
+
 import useAuthStore from "@/store/auth.store";
 import * as Sentry from "@sentry/react-native";
 import { useFonts } from "expo-font";
@@ -6,6 +19,7 @@ import { useEffect } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import "../app/global.css";
 
+// Initialize Sentry for error tracking and performance monitoring
 Sentry.init({
   dsn: "https://55a376ab97094eb0df6a239530b16128@o4509750926573568.ingest.us.sentry.io/4509751006461952",
 
@@ -17,8 +31,14 @@ Sentry.init({
   // spotlight: __DEV__,
 });
 
-// Wrap the root layout with Sentry
+/**
+ * Root Layout Component wrapped with Sentry for error tracking
+ *
+ * Manages app initialization, font loading, and authentication state.
+ * Provides the navigation structure for the entire application.
+ */
 export default Sentry.wrap(function RootLayout() {
+  // Load custom Quicksand fonts for consistent typography
   const [fontsLoaded, error] = useFonts({
     "Quicksand-Regular": require("../assets/fonts/Quicksand-Regular.ttf"),
     "Quicksand-Bold": require("../assets/fonts/Quicksand-Bold.ttf"),
@@ -28,23 +48,24 @@ export default Sentry.wrap(function RootLayout() {
   });
 
   const { isLoading, fetchAuthenticatedUser } = useAuthStore();
-  // Hide the splash screen when the fonts are loaded
+
+  // Handle splash screen visibility based on font loading
   useEffect(() => {
     if (error) throw error;
     if (fontsLoaded) SplashScreen.hideAsync();
   }, [fontsLoaded, error]);
 
-  // Fetch the authenticated user
+  // Initialize authentication state on app startup
   useEffect(() => {
     fetchAuthenticatedUser();
   }, []);
 
-  // If the fonts are not loaded, the splash screen is shown
+  // Show loading state while fonts are loading
   if (!fontsLoaded && !error && !isLoading) {
     return null;
   }
 
-  // If the fonts are loaded, the splash screen is hidden
+  // Main app structure with navigation stack
   return (
     <SafeAreaProvider>
       <Stack initialRouteName="(tabs)" screenOptions={{ headerShown: false }} />
