@@ -234,7 +234,16 @@ All components follow a consistent design pattern:
 
 ## 📱 Screenshots
 
-_Add screenshots of your app here_
+<p align="center">
+  <img src="assets/Screenshots/Home-Page.png" alt="Home Page" width="250" />
+  <img src="assets/Screenshots/Menu%20and%20Search%20-%20Page.png" alt="Menu and Search Page" width="250" />
+  <img src="assets/Screenshots/Item%20Detials%20-%20Page.png" alt="Item Details Page" width="250" />
+</p>
+
+<p align="center">
+  <img src="assets/Screenshots/Cart%20-%20Page.png" alt="Cart Page" width="250" />
+  <img src="assets/Screenshots/Profile%20-%20Page.png" alt="Profile Page" width="250" />
+</p>
 
 ## 🤝 Contributing
 
@@ -259,8 +268,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 If you have any questions or need help with setup, please open an issue or contact:
 
-- Email: your.email@example.com
-- GitHub: [@yourusername](https://github.com/yourusername)
+- Email: Saleh_Alodeab@hotmail.com
+- GitHub: [sloo7y532](https://github.com/sloo7y532)
 
 ---
 
