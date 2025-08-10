@@ -2,8 +2,6 @@
 
 A modern, full-featured food delivery mobile application built with React Native, Expo, and Appwrite. This app provides a seamless experience for users to browse menus, customize orders, and manage their cart.
 
-![Food Delivery App](assets/readme/hero.png)
-
 ## ✨ Features
 
 ### 🔐 Authentication
@@ -252,10 +250,6 @@ All components follow a consistent design pattern:
 3. Commit your changes (`git commit -m 'Add some amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
